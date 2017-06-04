@@ -2,13 +2,13 @@
 
 Community knowledge register, organization and sharing,
 
+Inspace is a tool to help communities organize and share knowledge. Its based on information categorization. The schema involves the following categories:
+
 * [Galaxies](#galaxies)
 * [Stars](#stars)
 * [Planets](#planets)
 * [Satellite](#satellite)
 * [Galaxies example](#galaxies-structure-example)
-
-Inspace is a tool to help communities organize and share knowledge. Its based on information categorization. The schema involves the following categories:
 
 ## Galaxies
 
@@ -21,7 +21,7 @@ Stars are still group of knowledge big enough to have smaller categories of info
 
 ## Planets
 
-Usually Planet represent an information properly. Planets orbits a Star and have special dependency relation with it. A Planet cannot exist without an Star and cannot exist around more than one Star at same time. It may be possible to migrate a Planet from a Star to another, although it's not desired.
+Usually Planet represent the smallest category of information. Planets orbits a Star and have special dependency relation with it. A Planet cannot exist without an Star and cannot exist around more than one Star at same time. It may be possible to migrate a Planet from a Star to another, although it's not desired.
 
 ## Satellite
 
