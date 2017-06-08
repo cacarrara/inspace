@@ -1,10 +1,12 @@
+import uuid
+
 from schematics.models import Model
 from schematics.types import StringType, UUIDType
 from schematics.types.compound import ListType, ModelType
 
 
 class IdentifiableModel(Model):
-    id = UUIDType(required=True)
+    id = UUIDType(required=True, default=uuid.uuid4())
 
 
 class SchemaElement(IdentifiableModel):
