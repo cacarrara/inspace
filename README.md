@@ -1,5 +1,8 @@
 # InSpace
 
+[![travis](https://travis-ci.org/cacarrara/inspace.svg?branch=master)](https://travis-ci.org/cacarrara/inspace/)
+[![codecov](https://codecov.io/gh/cacarrara/inspace/branch/master/graph/badge.svg)](https://codecov.io/gh/cacarrara/inspace)
+
 Inspace is a tool to help communities organize and share knowledge. Its based on information categorization that follows a well defined schema.
 
 
