@@ -14,9 +14,10 @@ def test_provider_galaxy_create_invalid(provider):
 
 
 def test_provider_galaxy_create_repeated_name(galaxy_name, provider):
-    provider.create_galaxy(galaxy_name)
-    provider.create_galaxy(galaxy_name)
+    first_id = provider.create_galaxy(galaxy_name).id
+    second_id = provider.create_galaxy(galaxy_name).id
     assert len(provider.galaxies) == 1
+    assert first_id == second_id
 
 
 def test_provider_galaxy_get_by_name(galaxy_name, provider_loaded):
