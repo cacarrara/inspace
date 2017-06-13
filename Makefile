@@ -28,7 +28,7 @@ test-coverage:
 install-local:
 	pip install -r requirements/local.txt
 
-install-local:
+install-test:
 	pip install -r requirements/test.txt
 
 ${VIRTUAL_ENV}/bin/pip-sync:
