@@ -1,0 +1,4 @@
+-r production.txt
+pytest-django
+pytest-cov
+flake8
