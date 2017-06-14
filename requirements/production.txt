@@ -4,6 +4,7 @@
 #
 #    pip-compile --output-file requirements/production.txt requirements/production.in
 #
+dj-database-url==0.4.2
 django==1.11.2
 prettyconf==1.2.3
 psycopg2==2.7.1
