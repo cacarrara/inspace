@@ -20,10 +20,10 @@ clean-build:
 	@rm -fr *.egg-info
 
 test:
-	py.test -vv inspace/tests/
+	pytest inspace
 
 test-coverage:
-	py.test -vv inspace/tests/ --cov olist-webapp/apps --cov-report=term-missing --cov-report=html
+	pytest inspace --cov-report=html
 
 install-local:
 	pip install -r requirements/local.txt
