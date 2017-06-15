@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,24 +40,30 @@
   <div class="container">
     <div class="columns">
       <div class="column is-half">
-        <div class="media">
-          <div class="media-content content is-small">
-            <h5><a href="#">Django Project -- tutorial</a></h5>
-            <p>Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.</p>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <button class="button is-small is-success is-outlined level-item">
-                  <span class="icon is-small"><i class="fa fa-thumbs-o-up"></i></span>
-                  <span>Yay!</span>
-                </button>
-                <button class="button is-small is-warning is-outlined level-item">
-                  <span class="icon is-small"><i class="fa fa-thumbs-o-down"></i></span>
-                  <span>So so</span>
-                </button>
-              </div>
-            </nav>
+        <form action="#">
+          <div class="field">
+            <label class="label">Título</label>
+            <p class="control">
+              <input class="input" type="text" placeholder="Título">
+            </p>
           </div>
-        </div>  
+
+          <div class="field">
+            <label class="label">Descrição</label>
+              <p class="control">
+                <textarea class="textarea" placeholder="Descrição"></textarea>
+              </p>
+          </div>
+
+          <div class="field is-grouped">
+            <p class="control">
+              <button class="button is-success">Enviar</button>
+            </p>
+            <p class="control">
+              <button class="button is-link">Cancelar</button>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   </div>
