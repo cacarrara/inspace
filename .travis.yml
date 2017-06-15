@@ -4,6 +4,9 @@ language: python
 python:
     - "3.6"
 
+env:
+    - PROJECT_DOMAIN=localhost:8000 SECRET_KEY=TRAVIS-SEKRET
+
 install:
     - make install-test
 
