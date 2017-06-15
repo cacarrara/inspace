@@ -7,8 +7,7 @@ from prettyconf import config
 # Project Structure
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(os.path.abspath(BASE_DIR))
-print(PROJECT_DIR)
-FRONTEND_DIR = os.path.join(PROJECT_DIR, 'frontend')
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 
 # Project Info
 PROJECT_NAME = 'InSpace - knowledge sharing'
@@ -40,7 +39,7 @@ LANGUAGES = (
     ('pt-br', 'Português (Brasil)'),
 )
 LOCALE_PATHS = (
-    os.path.join(PROJECT_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 
@@ -62,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': (
-            os.path.join(FRONTEND_DIR, 'templates')
+            os.path.join(FRONTEND_DIR, 'templates'),
         ),
         'APP_DIRS': True,
         'OPTIONS': {
