@@ -1,4 +1,5 @@
 -r production.txt
+mixer
 pytest-django
 pytest-cov
 flake8
