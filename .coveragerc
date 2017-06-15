@@ -7,3 +7,5 @@ omit=
     *settings*
     */migrations/*
     *const.py*
+    *apps*
+    *manage.py*
