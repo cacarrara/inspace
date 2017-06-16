@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block base_content %}
+<nav class="nav">
+  <div class="container is-fluid">
+    <div class="nav-left">
+      <a class="nav-item is-brand" href="/">
+        <h1 class="title">InSpace</h1>
+      </a>
+      <div class="nav-item">
+        <form action="#">
+          <div class="field has-addons">
+            <p class="control is-expanded">
+              <input class="input is-info" type="text" placeholder="Posso ajudar?">
+            </p>
+            <p class="control">
+              <button class="button is-info">
+                <span class="icon">
+                  <i class="fa fa-search"></i>
+                </span>
+              </button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<hr style="margin: 1rem 0;">
+
+<div class="container">
+  <div class="columns">
+    <div class="column is-half">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock %}

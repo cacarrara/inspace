@@ -1,0 +1,22 @@
+{% extends 'base_nav.html' %}
+
+{% load i18n %}
+{% load inspace_forms %}
+
+{% block content %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {% for field in form.visible_fields %}
+      {% default_field field %}
+  {% endfor %}
+
+  <div class="field is-grouped">
+    <p class="control">
+      <button class="button is-success">{% trans 'Send' %}</button>
+    </p>
+    <p class="control">
+      <button class="button is-link">{% trans 'Cancel' %}</button>
+    </p>
+  </div>
+</form>
+{% endblock %}

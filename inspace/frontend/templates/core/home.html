@@ -1,37 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <meta content="width=device-width,initial-scale=1.0" name="viewport">
-</head>
-<body> 
-  <section class="section hero has-text-centered">
-    <div class="hero-body">
-      <div class="columns">
-        <div class="column is-half is-offset-one-quarter">
-          <h1 class="title is-1">InSpace</h1>
-          <form class="control" action="results.html">
-            <div class="field has-addons">
-              <p class="control is-expanded">
-                <input class="input is-medium is-info" type="text" placeholder="Posso ajudar?">
-              </p>
-              <p class="control">
-                <button class="button is-medium is-info">
-                  <span class="icon">
-                    <i class="fa fa-search"></i>
-                  </span>
-                </button>
-              </p>
-            </div>
-          </form>
-          <hr>
-          <a class="button is-success is-outlined" href="form.html">Colaborar</a>
-        </div>
+{% extends 'base.html' %}
+
+{% block base_content %}
+<section class="section hero has-text-centered">
+  <div class="hero-body">
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <h1 class="title is-1">InSpace</h1>
+        <form class="control" action="results.html">
+          <div class="field has-addons">
+            <p class="control is-expanded">
+              <input class="input is-medium is-info" type="text" placeholder="Posso ajudar?">
+            </p>
+            <p class="control">
+              <button class="button is-medium is-info">
+                <span class="icon"><i class="fa fa-search"></i></span>
+              </button>
+            </p>
+          </div>
+        </form>
+        <hr>
+        <a class="button is-success is-outlined" href="{% url 'core:resource-create'%}">Colaborar</a>
       </div>
     </div>
-  </section>
-</body>
-</html>
+  </div>
+</section>
+{% endblock %}
