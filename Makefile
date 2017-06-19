@@ -45,3 +45,6 @@ pip-install: pip-compile
 
 pip-upgrade: pip-tools
 	pip-compile --upgrade requirements/production.in
+
+run-migrate:
+	python inspace/manage.py migrate
