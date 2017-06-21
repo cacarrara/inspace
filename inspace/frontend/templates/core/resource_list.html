@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block base_content %}
+
+<section class="section hero has-text-centered">
+  <div class="hero-body">
+    <h1 class="title">
+      {{request.method}}
+    </h1>
+
+    <ul>
+      {% for resource in resource_list %}
+      <li>
+        {{resource}}
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</section>
+{%endblock%}
