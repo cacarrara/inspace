@@ -6,8 +6,7 @@
     <div class="columns">
       <div class="column is-half is-offset-one-quarter">
         <h1 class="title is-1">InSpace</h1>
-        <form class="control" method="POST" action="{% url 'core:resource-list'%}">
-            {% csrf_token %}
+        <form class="control" method="GET" action="{% url 'core:resource-list' title%}">
           <div class="field has-addons">
             <p class="control is-expanded">
               <input name="title" class="input is-medium is-info" type="text" placeholder="Posso ajudar?">
