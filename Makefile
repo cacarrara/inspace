@@ -48,3 +48,6 @@ pip-upgrade: pip-tools
 
 run-migrate:
 	python inspace/manage.py migrate
+
+shell:
+	python inspace/manage.py shell
