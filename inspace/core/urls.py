@@ -6,7 +6,6 @@ from . import views
 urlpatterns = [
     url(r'^resources/new/$',
         views.resource_create_view, name='resource-create'),
-    url(r'^resources/(?P<title>\w{0,50})$',
-        views.resource_list_view, name='resource-list'),
+    url(r'^resources/', views.resource_list_view, name='resource-list'),
     url(r'^$', views.home_view, name='home'),
 ]

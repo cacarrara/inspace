@@ -18,18 +18,20 @@ class ResourceCreateView(CreateView):
     form_class = ResourceForm
     context_object_name = 'reosource'
 
+
 resource_create_view = ResourceCreateView.as_view()
 
 
 class ResourceListView(ListView):
     http_method_names = ('get', )
     model = Resource
-    template_name = 'core/resource_list.html'
-    context_object_name = 'resource_list'
 
     def get_queryset(self):
         title = self.request.GET.get('title')
-        # QUERY TABELA
-        return self.model.objects.all()
+        if title:
+            return self.model.objects.filter(title__icontains=title)
+        else:
+            return self.model.objects.all()
+
 
 resource_list_view = ResourceListView.as_view()

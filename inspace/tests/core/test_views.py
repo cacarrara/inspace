@@ -10,5 +10,5 @@ def test_home_get_successfully(client):
 @pytest.mark.django_db
 def test_resource_list_successfully(client):
     response = client.get(
-        reverse('core:resource-list', kwargs={'title': 'python'}))
+        reverse('core:resource-list'))
     assert response.status_code == 200

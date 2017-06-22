@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block base_content %}
+{% extends 'base.html' %}
+
+{% block base_content %}
 
 <section class="section hero has-text-centered">
   <div class="hero-body">
@@ -9,11 +11,11 @@
     <ul>
       {% for resource in resource_list %}
       <li>
-        {{resource}}
+        {{ resource }}
       </li>
       {% endfor %}
     </ul>
 
   </div>
 </section>
-{%endblock%}
+{% endblock %}
