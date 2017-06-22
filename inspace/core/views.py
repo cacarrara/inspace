@@ -1,5 +1,4 @@
 from django.views.generic import CreateView, TemplateView, ListView
-from django.shortcuts import redirect
 from .forms import ResourceForm
 from .models import Resource
 
