@@ -1,4 +1,5 @@
 from django.db import migrations, models
+import django.db.models.deletion
 import uuid
 
 
@@ -33,7 +34,7 @@ class Migration(migrations.Migration):
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('title', models.CharField(max_length=250, unique=True, verbose_name='Title')),
                 ('description', models.TextField(blank=True, verbose_name='Description')),
-                ('planets', models.ManyToManyField(related_name='resources', to='core.Planet', verbose_name='Planets')),
+                ('planet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='resources', to='core.Planet', verbose_name='Planet')),
             ],
             options={
                 'verbose_name': 'Resource',

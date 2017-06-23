@@ -29,7 +29,7 @@ class Planet(BaseModel):
 class Resource(BaseModel):
     title = models.CharField(_('Title'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True)
-    planets = models.ManyToManyField(Planet, verbose_name=_('Planets'), related_name='resources')
+    planet = models.ForeignKey(Planet, verbose_name=_('Planet'), related_name='resources')
 
     class Meta:
         db_table = 'resources'

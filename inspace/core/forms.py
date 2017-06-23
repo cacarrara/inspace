@@ -9,5 +9,5 @@ class ResourceForm(ModelForm):
         model = Resource
         fields = '__all__'
         widgets = {
-            'planets': TextInput()
+            'planet': TextInput()
         }
