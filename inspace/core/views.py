@@ -15,7 +15,7 @@ class ResourceCreateView(CreateView):
     template_name = 'core/resource_form.html'
     model = Resource
     form_class = ResourceForm
-    context_object_name = 'reosource'
+    context_object_name = 'resource'
 
 
 resource_create_view = ResourceCreateView.as_view()
