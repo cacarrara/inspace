@@ -1,5 +1,4 @@
-from django.views.generic import CreateView, TemplateView
-
+from django.views.generic import CreateView, TemplateView, ListView
 from .forms import ResourceForm
 from .models import Resource
 
@@ -20,3 +19,18 @@ class ResourceCreateView(CreateView):
 
 
 resource_create_view = ResourceCreateView.as_view()
+
+
+class ResourceListView(ListView):
+    http_method_names = ('get', )
+    model = Resource
+
+    def get_queryset(self):
+        title = self.request.GET.get('title')
+        if title:
+            return self.model.objects.filter(title__icontains=title)
+        else:
+            return self.model.objects.all()
+
+
+resource_list_view = ResourceListView.as_view()
