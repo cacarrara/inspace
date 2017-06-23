@@ -23,3 +23,8 @@ def default_field(field):
     return {
         'field': field,
     }
+
+
+@register.filter
+def field_type(field):
+    return field.field.widget.__class__.__name__.lower()
