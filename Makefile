@@ -3,6 +3,12 @@ default: test
 run:
 	python inspace/manage.py runserver
 
+run-migrate:
+	python inspace/manage.py migrate
+
+shell:
+	python inspace/manage.py shell
+
 clean: clean-eggs clean-build
 	@find . -iname '*.pyc' -delete
 	@find . -iname '*.pyo' -delete
@@ -45,9 +51,3 @@ pip-install: pip-compile
 
 pip-upgrade: pip-tools
 	pip-compile --upgrade requirements/production.in
-
-run-migrate:
-	python inspace/manage.py migrate
-
-shell:
-	python inspace/manage.py shell
