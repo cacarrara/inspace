@@ -23,5 +23,6 @@ def test_resources_number_all(client, resources):
 
 @pytest.mark.django_db
 def test_resouces_query_icontains(client, resources):
-    response = client.get('/resources/', {'title': 'p'})
+    url = reverse('core:resource-list')
+    response = client.get(url, {'title': 'p'})
     assert len(response.context['resource_list']) == 2

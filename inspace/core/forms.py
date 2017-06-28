@@ -1,13 +1,15 @@
 from django.forms import ModelForm
-from django.forms.widgets import TextInput
 
-from .models import Resource
+from .models import Planet, Resource
 
 
 class ResourceForm(ModelForm):
     class Meta:
         model = Resource
         fields = '__all__'
-        widgets = {
-            'planet': TextInput()
-        }
+
+
+class PlanetForm(ModelForm):
+    class Meta:
+        model = Planet
+        fields = '__all__'

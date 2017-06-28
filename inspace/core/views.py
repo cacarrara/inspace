@@ -1,6 +1,9 @@
+from urllib.parse import urlencode
+
+from django.core.urlresolvers import reverse
 from django.views.generic import CreateView, TemplateView, ListView
-from .forms import ResourceForm
-from .models import Resource
+from .forms import PlanetForm, ResourceForm
+from .models import Planet, Resource
 
 
 class HomeTemplateView(TemplateView):
@@ -16,6 +19,12 @@ class ResourceCreateView(CreateView):
     model = Resource
     form_class = ResourceForm
     context_object_name = 'resource'
+
+    def get_success_url(self):
+        return '{}?{}'.format(
+            reverse('core:resource-list'),
+            urlencode({'title': self.object.title}),
+        )
 
 
 resource_create_view = ResourceCreateView.as_view()
@@ -34,3 +43,15 @@ class ResourceListView(ListView):
 
 
 resource_list_view = ResourceListView.as_view()
+
+
+class PlanetCreateView(CreateView):
+    model = Planet
+    form_class = PlanetForm
+    context_object_name = 'planet'
+
+    def get_success_url(self):
+        return reverse('core:home')
+
+
+planet_create_view = PlanetCreateView.as_view()
