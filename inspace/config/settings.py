@@ -48,11 +48,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(FRONTEND_DIR, 'media')
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(FRONTEND_DIR, 'static')
+STATIC_ROOT = os.path.join(FRONTEND_DIR, 'static_deploy')
+STATIC_DIR = os.path.join(FRONTEND_DIR, 'static')
 
 STATICFILES_DIRS = (
-    ('styles', '%s/styles' % STATIC_ROOT),
-    ('js', '%s/js' % STATIC_ROOT),
+    ('styles', '%s/styles' % STATIC_DIR),
+    ('js', '%s/js' % STATIC_DIR),
 )
 
 
