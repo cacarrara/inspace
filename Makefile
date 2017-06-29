@@ -9,6 +9,9 @@ run-migrate:
 shell:
 	python inspace/manage.py shell
 
+collectstatic:
+	python inspace/manage.py collectstatic
+
 clean: clean-eggs clean-build
 	@find . -iname '*.pyc' -delete
 	@find . -iname '*.pyo' -delete
