@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.common',
             ],
         },
     },
@@ -119,3 +120,5 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+INSPACE_LOGO_URL = config('INSPACE_LOGO_URL', default='https://image.flaticon.com/icons/png/128/139/139686.png')
