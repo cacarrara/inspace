@@ -51,7 +51,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(FRONTEND_DIR, 'static')
 
 STATICFILES_DIRS = (
-    ('bower_components', '%s/bower_components' % STATIC_ROOT),
     ('styles', '%s/styles' % STATIC_ROOT),
     ('js', '%s/js' % STATIC_ROOT),
 )
