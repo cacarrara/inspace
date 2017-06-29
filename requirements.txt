@@ -1,0 +1,2 @@
+# This file is used by Paas to install application dependencies
+-r requirements/paas.txt
