@@ -1,44 +1,65 @@
 {% extends 'base_nav.html' %}
 
 {% block content %}
+
+  <form action="{% url 'core:resource-list' %}" method="get" accept-charset="utf-8">
+    <div class="field has-addons">
+      <p class="control is-expanded">
+      <input name='title' class="input is-info" type="text" placeholder="O que deseja procurar?">
+      </p>
+      <p class="control">
+      <button class="button is-info">
+        <span class="icon">
+          <i class="fa fa-search"></i>
+        </span>
+      </button>
+      </p>
+    </div>
+  </form>
+  <br>
+
   {% for resource in resource_list %}
-  <div class="box">
-    <article class="media">
-      <div class="media-left">
-        <figure class="image is-64x64">
-          <img src="https://image.flaticon.com/icons/png/128/405/405340.png" alt="Image">
-        </figure>
-      </div>
-      <div class="media-content">
-        <div class="content">
-          <p>
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <img src="https://image.flaticon.com/icons/png/128/405/405340.png" alt="Image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
             <strong>{{ resource|title }}</strong> <small>15/08/2017</small>
             <br>
-              {{ resource.description }}
-          </p>
-        </div>
-        <nav class="level is-mobile">
-          <div class="level-left">
-            <a class="level-item">
-              <span class="icon is-small"><i class="fa fa-thumbs-o-up"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fa fa-thumbs-o-down"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fa fa-share"></i></span>
-            </a>
+            {{ resource.description }}
+            </p>
           </div>
-          <div class="level-right">
-            {% for planet in resource.planets.all %}
-              <a href="#" class="level-item">
-                <span class="tag is-info">{{ planet }}</span>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item">
+                <span class="icon has-text-info"><i class="fa fa-thumbs-o-up"></i></span>
               </a>
-            {% endfor %}
-          </div>
-        </nav>
-      </div>
-    </article>
-  </div>
+              <a class="level-item">
+                <span class="icon has-text-info"><i class="fa fa-thumbs-o-down"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon has-text-info"><i class="fa fa-share"></i></span>
+              </a>
+            </div>
+            <div class="level-right">
+              <a href="#" class="level-item">
+                <span class="tag is-info">{{ resource.planet }}</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+
+  {% empty %}
+    <div class="notification is-danger">
+      Não conseguimos achar nada 😐
+    </div>
   {% endfor %}
+
 {% endblock %}
