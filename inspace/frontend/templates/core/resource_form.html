@@ -1,1 +1,18 @@
-{% extends 'form/base.html' %}
+{% extends 'base_nav.html' %}
+
+{% load i18n %}
+
+{% block content %}
+  <div class="tabs">
+    <ul>
+      <li class="{% if is_resource_link %}is-active{% endif %}">
+        <a href="{% url 'core:resource-link-create' %}">{% trans 'Link' %}</a>
+      </li>
+      <li class="{% if is_resource %}is-active{% endif %}">
+        <a href="{% url 'core:resource-create' %}">{% trans 'Resource' %}</a>
+      </li>
+    </ul>
+  </div>
+
+  {% include 'form/_base.html' %}
+{% endblock %}

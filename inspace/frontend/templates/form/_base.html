@@ -1,9 +1,6 @@
-{% extends 'base_nav.html' %}
-
 {% load i18n %}
 {% load inspace_forms %}
 
-{% block content %}
 <form action="" method="POST">
   {% csrf_token %}
   {% for field in form.visible_fields %}
@@ -19,4 +16,3 @@
     </p>
   </div>
 </form>
-{% endblock %}

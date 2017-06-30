@@ -37,5 +37,27 @@ class Resource(BaseModel):
         verbose_name = _('Resource')
         verbose_name_plural = _('Resources')
 
+    def is_link(self):
+        return False
+
     def __str__(self):
         return self.title
+
+
+class ResourceLink(BaseModel):
+    url = models.URLField(_("Url"), unique=True)
+    title = models.CharField(_('Title'), max_length=250, unique=True)
+    description = models.TextField(_('Description'), blank=True)
+    planet = models.ForeignKey(Planet, verbose_name=_('Planet'), related_name='resources_links')
+
+    class Meta:
+        db_table = 'resources_links'
+        ordering = ('title', )
+        verbose_name = _('Resource Link')
+        verbose_name_plural = _('Resources Links')
+
+    def is_link(self):
+        return True
+
+    def __str__(self):
+        return '{} <{}>'.format(self.title, self.url)

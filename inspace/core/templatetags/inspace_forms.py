@@ -11,7 +11,7 @@ def default_field(field):
 
     if field_type == 'textarea':
         css_classes.append('textarea')
-    elif field_type == 'textinput':
+    elif field_type in ('textinput', 'urlinput'):
         css_classes.append('input')
 
     if field.errors:

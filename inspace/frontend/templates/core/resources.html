@@ -1,0 +1,31 @@
+{% extends 'base_nav.html' %}
+
+{% load i18n %}
+
+{% block content %}
+  <form action="{% url 'core:resource-list' %}" method="get" accept-charset="utf-8">
+    <div class="field has-addons">
+      <p class="control is-expanded">
+        <input name='title' class="input is-info" type="text" placeholder="{% trans 'can I help you?' %}">
+      </p>
+      <p class="control">
+        <button class="button is-info">
+          <span class="icon">
+            <i class="fa fa-search"></i>
+          </span>
+        </button>
+      </p>
+    </div>
+  </form>
+
+  <hr>
+
+  {% for resource in resources %}
+    {% include 'core/_resource_card.html' %}
+  {% empty %}
+    <div class="notification is-danger">
+      <p>{% trans 'No resource found 😐' %}</p>
+    </div>
+  {% endfor %}
+
+{% endblock %}
