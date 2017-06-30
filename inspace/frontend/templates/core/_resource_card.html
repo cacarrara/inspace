@@ -13,7 +13,8 @@
           {% else %}
             <strong>{{ resource.title|title }}</strong> 
           {% endif %}
-          <small>{{ resource.created_at|date }}</small>
+          <br>
+          <small class="subtitle is-6">{{ resource.created_at|date:"d/M/Y" }}</small>
         </p>
         <p>{{ resource.description }}</p>
       </div>
