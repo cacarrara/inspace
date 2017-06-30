@@ -29,7 +29,7 @@
         <div class="media-content">
           <div class="content">
             <p>
-            <strong>{{ resource|title }}</strong> <small>15/08/2017</small>
+            <strong>{{ resource|title }}</strong> <small>{{ resource.created_at|date }}</small>
             <br>
             {{ resource.description }}
             </p>
