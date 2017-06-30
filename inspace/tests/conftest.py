@@ -23,7 +23,7 @@ def planet():
 
 
 @pytest.fixture
-def mocked_response():
+def mocked_response_with_desc():
     mocked_response = Response()
     mocked_response._content = """
     <html lang="en">
@@ -31,6 +31,21 @@ def mocked_response():
         <meta name='description' content='test description'>
     </head>
     <body>
+    </body>
+    </html>
+    """
+    return mocked_response
+
+
+@pytest.fixture
+def mocked_response_without_desc():
+    mocked_response = Response()
+    mocked_response._content = """
+    <html lang="en">
+    <head>
+    </head>
+    <body>
+        <p>test paragraph</p>
     </body>
     </html>
     """

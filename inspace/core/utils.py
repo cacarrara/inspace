@@ -20,4 +20,8 @@ def get_site_description(url):
         meta_description = target_markup.head.find('meta', {'name': 'description'})
         if meta_description:
             description = meta_description.get('content')
+        else:
+            first_paragraph = target_markup.find('p')
+            if first_paragraph:
+                description = first_paragraph.string
     return description
