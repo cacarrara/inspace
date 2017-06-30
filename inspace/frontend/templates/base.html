@@ -21,6 +21,11 @@
   </head>
 
   <body>
+    <div class="notification is-warning" style="margin-bottom: 0; padding: 5px;">
+      <div class="container">
+        <p>{% trans 'InSpace is right now in pre-alpha. Use it at your own risk. Data may be deleted without prior notice.' %}</p>
+      </div>
+    </div>
     {% block base_content %}
     {% endblock %}
   </body>
