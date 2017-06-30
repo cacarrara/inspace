@@ -34,7 +34,7 @@ def test_resource_is_link():
 
 
 def test_resource_link_uniqueness_title():
-    mixer.blend(ResourceLink, title='test title')
+    mixer.blend(ResourceLink, title='test title', url='')
     with pytest.raises(IntegrityError):
         mixer.blend(ResourceLink, title='test title')
 
@@ -51,4 +51,4 @@ def test_resource_link_str():
 
 
 def test_resource_link_is_link():
-    assert mixer.blend(ResourceLink).is_link()
+    assert mixer.blend(ResourceLink, url='').is_link()

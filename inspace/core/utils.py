@@ -17,5 +17,7 @@ def get_site_description(url):
 
     if site_content:
         target_markup = BeautifulSoup(site_content, 'html.parser')
-        description = target_markup.head.find('meta', {'name': 'description'}).get('content')
+        meta_description = target_markup.head.find('meta', {'name': 'description'})
+        if meta_description:
+            description = meta_description.get('content')
     return description
