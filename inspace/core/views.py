@@ -60,15 +60,34 @@ class ResourcesTemplateView(TemplateView):
     template_name = 'core/resources.html'
     http_method_names = ('get', )
 
+    def get_resource_queryset(self, title, planet):
+        if title:
+            qs = Resource.objects.filter(title__contains=title)
+        else:
+            qs = Resource.objects.all()
+
+        if planet:
+            qs = qs.filter(planet__name__icontains=planet)
+        return qs
+
+    def get_resource_link_queryset(self, title, planet):
+        if title:
+            qs = ResourceLink.objects.filter(title__contains=title)
+        else:
+            qs = ResourceLink.objects.all()
+
+        if planet:
+            qs = qs.filter(planet__name__icontains=planet)
+        return qs
+
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data()
         title = self.request.GET.get('title')
-        if title:
-            resources = [r for r in Resource.objects.filter(title__contains=title)]
-            resources.extend([r for r in ResourceLink.objects.filter(title__contains=title)])
-        else:
-            resources = [r for r in Resource.objects.all()]
-            resources.extend([r for r in ResourceLink.objects.all()])
+        planet = self.request.GET.get('planet')
+        resource_qs = self.get_resource_queryset(title, planet)
+        resource_link_qs = self.get_resource_link_queryset(title, planet)
+        resources = [r for r in resource_qs]
+        resources.extend([r for r in resource_link_qs])
         context['resources'] = resources
         return context
 
