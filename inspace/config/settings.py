@@ -30,10 +30,10 @@ SECRET_KEY = config('SECRET_KEY')
 
 # i18n & l10n
 TIME_ZONE = 'UTC'
-USE_I18N = False
-USE_L10N = False
+USE_I18N = True
+USE_L10N = True
 USE_TZ = True
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 LANGUAGES = (
     ('en', 'English'),
     ('pt-br', 'Português (Brasil)'),

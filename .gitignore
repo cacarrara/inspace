@@ -52,7 +52,6 @@ coverage.xml
 .hypothesis/
 
 # Translations
-*.mo
 *.pot
 
 *.log

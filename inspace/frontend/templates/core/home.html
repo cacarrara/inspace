@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block base_content %}
   <section class="section hero has-text-centered">
     <div class="notification is-warning">
-      <p>O InSpace se encontra em versão pré alpha. Use por sua conta em risco. Os dados persistidos no sistema poderão ser removidos sem aviso prévio.</p>
+      <p>{% trans 'InSpace is right now in pre-alpha. Use it at your own risk. Data may be deleted without prior notice.' %}</p>
     </div>
     <div class="hero-body">
       <div class="columns">
@@ -13,17 +15,20 @@
           <form class="control" method="GET" action="{% url 'core:resource-list' %}">
             <div class="field has-addons">
               <p class="control is-expanded">
-              <input name="title" class="input is-medium is-info" type="text" placeholder="Posso ajudar?">
+                <input name="title" class="input is-medium is-info" type="text" placeholder="{% trans 'can I help you?' %}">
               </p>
               <p class="control">
-              <button class="button is-medium is-info">
-                <span class="icon"><i class="fa fa-search"></i></span>
-              </button>
+                <button class="button is-medium is-info">
+                  <span class="icon"><i class="fa fa-search"></i></span>
+                </button>
               </p>
             </div>
           </form>
           <hr>
-          <a class="button is-success is-large is-outlined" href="{% url 'core:resource-create'%}"><span class="icon"><i class="fa fa-lightbulb-o"></i></span>&nbsp;Colaborar</a>
+          <a class="button is-success is-large is-outlined" href="{% url 'core:resource-create'%}">
+            <span class="icon"><i class="fa fa-lightbulb-o"></i></span>
+            <span>{% trans 'Collaborate' %}</span>
+          </a>
         </div>
       </div>
     </div>

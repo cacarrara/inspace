@@ -1,8 +1,10 @@
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>InSpace - {% block title %}Community knowledge register, organization and sharing.{% endblock %}</title>
+    <title>InSpace - {% block title %}{% trans 'Community knowledge register, organization and sharing.'%}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
@@ -27,12 +29,12 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong>InSpace</strong> is made by 
-          <a href="http://caiocarrara.com.br">Caio Carrara</a> and 
-          <a href="https://thiagolopes.github.io/">Thiago Lopes</a> at 
+          <strong>InSpace</strong> {% trans 'is made by' %} 
+          <a href="http://caiocarrara.com.br">Caio Carrara</a> {% trans 'and' %}
+          <a href="https://thiagolopes.github.io/">Thiago Lopes</a> {% trans 'at' %}
           <a href="http://spacesorocaba.com.br">Space</a>
         </p>
-        <p>Powered by</p>
+        <p>{% trans 'Powered by' %}</p>
         <p>
           <a href="https://python.org"><i class="devicons devicons-python"></i></a>
           <a href="https://djangoproject.com"><i class="devicons devicons-django"></i></a>
