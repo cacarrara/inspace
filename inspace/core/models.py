@@ -3,6 +3,8 @@ import uuid
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from . import utils
+
 
 class BaseModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -58,6 +60,13 @@ class ResourceLink(BaseModel):
 
     def is_link(self):
         return True
+
+    def save(self, *args, **kwargs):
+        if self.url:
+            self.description = utils.get_site_description(self.url)
+        if not self.description:
+            self.description = self.title
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return '{} <{}>'.format(self.title, self.url)

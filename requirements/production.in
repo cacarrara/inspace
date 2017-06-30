@@ -1,5 +1,7 @@
+beautifulsoup4
 dj-database-url
 django
 psycopg2
 prettyconf
+requests
 whitenoise
