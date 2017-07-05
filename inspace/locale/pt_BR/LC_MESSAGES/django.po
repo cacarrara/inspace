@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: InSpace 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 00:30+0000\n"
+"POT-Creation-Date: 2017-07-04 23:29+0000\n"
 "PO-Revision-Date: 2017-06-30 00:30+000\n"
 "Last-Translator: Caio Carrara <eu@caiocarrara.com.br>\n"
 "Language-Team: Brazilian Portuguese Team <pt_BR@li.org>\n"
@@ -17,78 +17,101 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: inspace/core/models.py:17
+#: inspace/core/models.py:19
 msgid "Name"
 msgstr "Nome"
 
-#: inspace/core/models.py:22 inspace/core/models.py:32
+#: inspace/core/models.py:24 inspace/core/models.py:34
+#: inspace/core/models.py:53
 msgid "Planet"
 msgstr "Planeta"
 
-#: inspace/core/models.py:23
+#: inspace/core/models.py:25
 msgid "Planets"
 msgstr "Planetas"
 
-#: inspace/core/models.py:30
+#: inspace/core/models.py:32 inspace/core/models.py:51
 msgid "Title"
 msgstr "Título"
 
-#: inspace/core/models.py:31
+#: inspace/core/models.py:33 inspace/core/models.py:52
 msgid "Description"
 msgstr "Descrição"
 
-#: inspace/core/models.py:37
+#: inspace/core/models.py:39
 msgid "Resource"
 msgstr "Recurso"
 
-#: inspace/core/models.py:38
+#: inspace/core/models.py:40
 msgid "Resources"
 msgstr "Recursos"
 
+#: inspace/core/models.py:50
+msgid "Url"
+msgstr ""
+
+#: inspace/core/models.py:58
+msgid "Resource Link"
+msgstr "Link"
+
+#: inspace/core/models.py:59
+msgid "Resources Links"
+msgstr "Links"
+
 #: inspace/frontend/templates/base.html:7
 msgid "Community knowledge register, organization and sharing."
-msgstr "Registro, organização e compartilhamento do conhecimento de comunidades."
+msgstr ""
+"Registro, organização e compartilhamento do conhecimento de comunidades."
 
-#: inspace/frontend/templates/base.html:32
-msgid "is made by"
-msgstr "é feito por"
-
-#: inspace/frontend/templates/base.html:33
-msgid "and"
-msgstr "e"
-
-#: inspace/frontend/templates/base.html:34
-msgid "at"
-msgstr "no"
-
-#: inspace/frontend/templates/base.html:37
-msgid "Powered by"
-msgstr "Suportado por"
-
-#: inspace/frontend/templates/core/home.html:8
+#: inspace/frontend/templates/base.html:27
 msgid ""
 "InSpace is right now in pre-alpha. Use it at your own risk. Data may be "
 "deleted without prior notice."
-msgstr "O InSpace se encontra em versão pré alpha. Use por sua conta em risco. "
-"Os dados persistidos no sistema poderão ser removidos sem aviso prévio."
+msgstr ""
+"O InSpace se encontra em versão pré alpha. Use por sua conta em risco. Os "
+"dados persistidos no sistema poderão ser removidos sem aviso prévio."
 
-#: inspace/frontend/templates/core/home.html:18
-#: inspace/frontend/templates/core/resource_list.html:8
+#: inspace/frontend/templates/base.html:38
+msgid "is made by"
+msgstr "é feito por"
+
+#: inspace/frontend/templates/base.html:39
+msgid "and"
+msgstr "e"
+
+#: inspace/frontend/templates/base.html:40
+msgid "at"
+msgstr "no"
+
+#: inspace/frontend/templates/base.html:43
+msgid "Powered by"
+msgstr "Suportado por"
+
+#: inspace/frontend/templates/core/home.html:15
+#: inspace/frontend/templates/core/resources.html:9
 msgid "can I help you?"
 msgstr "posso te ajudar?"
 
-#: inspace/frontend/templates/core/home.html:30
+#: inspace/frontend/templates/core/home.html:27
 msgid "Collaborate"
 msgstr "Colabore"
 
-#: inspace/frontend/templates/core/resource_list.html:60
+#: inspace/frontend/templates/core/resource_form.html:9
+msgid "Link"
+msgstr ""
+
+#: inspace/frontend/templates/core/resource_form.html:12
+msgid "Text"
+msgstr "Texto"
+
+#: inspace/frontend/templates/core/resources.html:27
 msgid "No resource found 😐"
 msgstr "Nenhum recurso encontrado 😐"
 
-#: inspace/frontend/templates/form/base.html:15
+#: inspace/frontend/templates/form/_base.html:12
 msgid "Send"
 msgstr "Enviar"
 
-#: inspace/frontend/templates/form/base.html:18
+#: inspace/frontend/templates/form/_base.html:15
 msgid "Cancel"
 msgstr "Cancelar"
