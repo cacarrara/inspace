@@ -88,6 +88,7 @@ class ResourcesTemplateView(TemplateView):
         resource_link_qs = self.get_resource_link_queryset(title, planet)
         resources = [r for r in resource_qs]
         resources.extend([r for r in resource_link_qs])
+        resources.sort(key=lambda x: x.updated_at, reverse=True)
         context['resources'] = resources
         return context
 
