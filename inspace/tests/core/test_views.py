@@ -9,6 +9,24 @@ def test_home_get_successfully(client):
     assert response.status_code == 200
 
 
+def test_home_resouces(client, resources):
+    url = reverse('core:home')
+    response = client.get(url)
+    assert len(response.context['resources']) == 3
+
+
+def test_home_resouces_links(client, resources_links):
+    url = reverse('core:home')
+    response = client.get(url)
+    assert len(response.context['resources_links']) == 3
+
+
+def test_home_planets(client, planet):
+    url = reverse('core:home')
+    response = client.get(url)
+    assert len(response.context['planets']) == 1
+
+
 def test_resource_list_successfully(client):
     response = client.get(reverse('core:resource-list'))
     assert response.status_code == 200
