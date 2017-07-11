@@ -10,6 +10,25 @@ class HomeTemplateView(TemplateView):
     http_method_names = ('get', )
     template_name = 'core/home.html'
 
+    def get_resource_queryset(self):
+        queryset = Resource.objects.all()[:5]
+        return queryset
+
+    def get_resource_link_queryset(self):
+        queryset = ResourceLink.objects.all()[:5]
+        return queryset
+
+    def get_plante_queryset(self):
+        queryset = Planet.objects.all()[:10]
+        return queryset
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['resources'] = self.get_resource_queryset()
+        context['resources_links'] = self.get_resource_link_queryset()
+        context['planets'] = self.get_plante_queryset()
+        return context
+
 
 home_view = HomeTemplateView.as_view()
 
