@@ -20,7 +20,7 @@ class Planet(BaseModel):
 
     class Meta:
         db_table = 'planets'
-        ordering = ('name', )
+        ordering = ('-updated_at', 'name')
         verbose_name = _('Planet')
         verbose_name_plural = _('Planets')
 
@@ -35,7 +35,7 @@ class Resource(BaseModel):
 
     class Meta:
         db_table = 'resources'
-        ordering = ('title', )
+        ordering = ('-updated_at', 'title')
         verbose_name = _('Resource')
         verbose_name_plural = _('Resources')
 
@@ -54,7 +54,7 @@ class ResourceLink(BaseModel):
 
     class Meta:
         db_table = 'resources_links'
-        ordering = ('title', )
+        ordering = ('-updated_at', 'title')
         verbose_name = _('Resource Link')
         verbose_name_plural = _('Resources Links')
 
