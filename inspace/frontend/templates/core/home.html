@@ -21,7 +21,7 @@
               </p>
             </div>
           </form>
-          <hr>
+          <br>
           <a class="button is-success is-large is-outlined" href="{% url 'core:resource-link-create'%}">
             <span class="icon"><i class="fa fa-lightbulb-o"></i></span>
             <span>{% trans 'Collaborate' %}</span>
@@ -30,4 +30,72 @@
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <hr>
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+            {% trans 'Last created resources' %}
+            </p>
+          </header>
+          <div class="card-content">
+            {% for resource in resources %}
+            <div class="content">
+              <a href="#">{{ resource }}</a>
+              <br>
+              <small>{{ resource.updated_at }}</small>
+            </div>
+            {% endfor %}
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'core:resource-list' %}"class="card-footer-item">{% trans 'More resources' %}</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+            {% trans 'Last created links' %}
+            </p>
+          </header>
+          <div class="card-content">
+            {% for resource_link in resources_links %}
+            <div class="content">
+              <a href="#">{{ resource_link.title }}</a>
+              <br>
+              <small>{{ resource_link.updated_at }}</small>
+            </div>
+            {% endfor %}
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'core:resource-list' %}"class="card-footer-item">{% trans 'More links' %}</a>
+          </footer>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+            {% trans 'Planets' %}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              {% for planet in planets %}
+                <span class="tag tag-list is-info is-medium">{{ planet }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a href="{% url 'core:planet-create' %}"class="card-footer-item">{% trans 'Create a planet' %}</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
 {% endblock %}
