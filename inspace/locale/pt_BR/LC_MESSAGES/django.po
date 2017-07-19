@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: InSpace 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-04 23:29+0000\n"
+"POT-Creation-Date: 2017-07-19 01:46+0000\n"
 "PO-Revision-Date: 2017-06-30 00:30+000\n"
 "Last-Translator: Caio Carrara <eu@caiocarrara.com.br>\n"
 "Language-Team: Brazilian Portuguese Team <pt_BR@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Nome"
 msgid "Planet"
 msgstr "Planeta"
 
-#: inspace/core/models.py:25
+#: inspace/core/models.py:25 inspace/frontend/templates/core/home.html:83
 msgid "Planets"
 msgstr "Planetas"
 
@@ -63,7 +63,7 @@ msgid "Community knowledge register, organization and sharing."
 msgstr ""
 "Registro, organização e compartilhamento do conhecimento de comunidades."
 
-#: inspace/frontend/templates/base.html:27
+#: inspace/frontend/templates/base.html:30
 msgid ""
 "InSpace is right now in pre-alpha. Use it at your own risk. Data may be "
 "deleted without prior notice."
@@ -71,19 +71,19 @@ msgstr ""
 "O InSpace se encontra em versão pré alpha. Use por sua conta em risco. Os "
 "dados persistidos no sistema poderão ser removidos sem aviso prévio."
 
-#: inspace/frontend/templates/base.html:38
+#: inspace/frontend/templates/base.html:41
 msgid "is made by"
 msgstr "é feito por"
 
-#: inspace/frontend/templates/base.html:39
+#: inspace/frontend/templates/base.html:42
 msgid "and"
 msgstr "e"
 
-#: inspace/frontend/templates/base.html:40
+#: inspace/frontend/templates/base.html:43
 msgid "at"
 msgstr "no"
 
-#: inspace/frontend/templates/base.html:43
+#: inspace/frontend/templates/base.html:46
 msgid "Powered by"
 msgstr "Suportado por"
 
@@ -95,6 +95,26 @@ msgstr "posso te ajudar?"
 #: inspace/frontend/templates/core/home.html:27
 msgid "Collaborate"
 msgstr "Colabore"
+
+#: inspace/frontend/templates/core/home.html:41
+msgid "Last created resources"
+msgstr "Últimos recursos"
+
+#: inspace/frontend/templates/core/home.html:54
+msgid "More resources"
+msgstr "Mais recursos"
+
+#: inspace/frontend/templates/core/home.html:62
+msgid "Last created links"
+msgstr "Últimos links"
+
+#: inspace/frontend/templates/core/home.html:75
+msgid "More links"
+msgstr "Mais links"
+
+#: inspace/frontend/templates/core/home.html:94
+msgid "Create a planet"
+msgstr "Crie um planeta"
 
 #: inspace/frontend/templates/core/resource_form.html:9
 msgid "Link"
