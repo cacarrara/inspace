@@ -86,7 +86,9 @@
           <div class="card-content">
             <div class="content">
               {% for planet in planets %}
-                <span class="tag tag-list is-info is-medium">{{ planet }}</span>
+                <a href="{% url 'core:resource-list' %}?planet={{ planet }}">
+                  <span class="tag tag-list is-info is-medium">{{ planet }}</span>
+                </a>
               {% endfor %}
             </div>
           </div>
