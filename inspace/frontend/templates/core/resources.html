@@ -1,6 +1,6 @@
 {% extends 'base_nav.html' %}
 
-{% load i18n %}
+{% load i18n staticfiles %}
 
 {% block content %}
   <form action="{% url 'core:resource-list' %}" method="get" accept-charset="utf-8">
@@ -23,6 +23,9 @@
   {% for resource in resources %}
     {% include 'core/_resource_card.html' %}
   {% empty %}
+    <div class="">
+      <img class="sad-planet" src="{% static 'styles/sadplanet.png' %}" alt="sad planet">
+    </div>
     <div class="notification is-danger">
       <p>{% trans 'No resource found 😐' %}</p>
     </div>
