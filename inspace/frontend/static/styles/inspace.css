@@ -1,0 +1,22 @@
+.add-it-yourself {
+  display: inline-block;
+  height: auto;
+  white-space: normal;
+  width: 100%;
+}
+
+.add-it-yourself .icon .fa {
+  font-size: 1.5rem;
+  margin-left: calc(-.375em - 1px);
+  margin-right: .1875em;
+}
+
+.container.home {
+  padding: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .add-it-yourself {
+    font-size: 1.1rem !important;
+  }
+}
