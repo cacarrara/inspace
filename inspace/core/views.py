@@ -80,21 +80,17 @@ class ResourcesTemplateView(TemplateView):
     http_method_names = ('get', )
 
     def get_resource_queryset(self, title, planet):
+        qs = Resource.objects.all()
         if title:
-            qs = Resource.objects.filter(title__contains=title)
-        else:
-            qs = Resource.objects.all()
-
+            qs = qs.filter(title__icontains=title)
         if planet:
             qs = qs.filter(planet__name__icontains=planet)
         return qs
 
     def get_resource_link_queryset(self, title, planet):
+        qs = ResourceLink.objects.all()
         if title:
-            qs = ResourceLink.objects.filter(title__contains=title)
-        else:
-            qs = ResourceLink.objects.all()
-
+            qs = qs.filter(title__icontains=title)
         if planet:
             qs = qs.filter(planet__name__icontains=planet)
         return qs

@@ -39,8 +39,8 @@ def test_resources_number_all(client, resources):
 
 def test_resouces_query_icontains(client, resources):
     url = reverse('core:resource-list')
-    response = client.get(url, {'title': 'p'})
-    assert len(response.context['resources']) == 2
+    response = client.get(url, {'title': 'inspace'})
+    assert len(response.context['resources']) == 1
 
 
 def test_resource_create_is_resource_in_context(client):

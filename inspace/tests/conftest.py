@@ -13,7 +13,7 @@ def client():
 
 @pytest.fixture
 def resources():
-    titles = ['python', 'ruby', 'php']
+    titles = ['InSpace', 'ruby', 'phP']
     return mixer.cycle(3).blend(Resource, title=(x for x in titles))
 
 
