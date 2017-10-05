@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.text import slugify
 
 from . import utils
 
@@ -32,6 +33,7 @@ class Resource(BaseModel):
     title = models.CharField(_('Title'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True)
     planet = models.ForeignKey(Planet, verbose_name=_('Planet'), related_name='resources')
+    slug = models.SlugField(unique=True, max_length=140,)
 
     class Meta:
         db_table = 'resources'
@@ -42,6 +44,10 @@ class Resource(BaseModel):
     def is_link(self):
         return False
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(test, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.title
 
@@ -51,6 +57,7 @@ class ResourceLink(BaseModel):
     title = models.CharField(_('Title'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True)
     planet = models.ForeignKey(Planet, verbose_name=_('Planet'), related_name='resources_links')
+    slug = models.SlugField(unique=True, max_length=140,)
 
     class Meta:
         db_table = 'resources_links'
@@ -66,6 +73,7 @@ class ResourceLink(BaseModel):
             self.description = utils.get_site_description(self.url)
         if not self.description:
             self.description = self.title
+        self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
     def __str__(self):
