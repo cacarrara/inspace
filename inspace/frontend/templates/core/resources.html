@@ -1,6 +1,7 @@
 {% extends 'base_nav.html' %}
 
 {% load i18n %}
+{% load inspace_forms %}
 
 {% block content %}
   <form action="{% url 'core:resource-list' %}" method="get" accept-charset="utf-8">
@@ -27,5 +28,17 @@
       <p>{% trans 'No resource found 😐' %}</p>
     </div>
   {% endfor %}
-
+        <div class="pagination">
+            <span class="page-link">
+                {% if resources.has_previous %}
+                    <a href="?{% url_replace page=resources.previous_page_number %}">previous</a>
+                {% endif %}
+                <span class="">
+                    Page {{ resources.number }} of {{ resources.paginator.num_pages }}.
+                </span>
+                {% if resources.has_next %}
+                    <a href="?{% url_replace page=resources.next_page_number %}">next</a>
+                {% endif %}
+            </span>
+        </div>
 {% endblock %}
