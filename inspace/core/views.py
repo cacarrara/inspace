@@ -79,7 +79,7 @@ class ResourcesTemplateView(ListView):
     template_name = 'core/resources.html'
     model = Resource
     http_method_names = ('get', )
-    paginate_by = 2
+    paginate_by = 10
 
     def get_resource_queryset(self, title, planet):
         qs = Resource.objects.all()
