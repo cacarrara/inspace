@@ -1,9 +1,19 @@
 from urllib.parse import urlencode
 
 from django.core.urlresolvers import reverse
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, DetailView
 from .forms import PlanetForm, ResourceForm, ResourceLinkForm
 from .models import Planet, Resource, ResourceLink
+
+
+class ResourceDetailView(DetailView):
+    model = Resource
+    context_object_name = 'resource'
+
+
+class ResourceLinkDetailView(DetailView):
+    model = ResourceLink
+    context_object_name = 'resource'
 
 
 class HomeTemplateView(TemplateView):

@@ -44,7 +44,7 @@
           <div class="card-content">
             {% for resource in resources %}
             <div class="content">
-              <a href="#">{{ resource }}</a>
+              <a href="{% url 'core:resource' slug=resource.slug %}">{{ resource }}</a>
               <br>
               <small>{{ resource.updated_at }}</small>
             </div>
@@ -65,7 +65,7 @@
           <div class="card-content">
             {% for resource_link in resources_links %}
             <div class="content">
-              <a href="#">{{ resource_link.title }}</a>
+              <a href="{% url 'core:resource-link' slug=resource_link.slug %}">{{ resource_link.title }}</a>
               <br>
               <small>{{ resource_link.updated_at }}</small>
             </div>
