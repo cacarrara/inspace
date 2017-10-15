@@ -1,10 +1,10 @@
 from urllib.parse import urlencode
 
 from django.core.urlresolvers import reverse
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .forms import PlanetForm, ResourceForm, ResourceLinkForm
 from .models import Planet, Resource, ResourceLink
-
 
 class HomeTemplateView(TemplateView):
     http_method_names = ('get', )
@@ -74,10 +74,12 @@ class ResourceLinkCreateView(CreateView):
 
 resource_link_create_view = ResourceLinkCreateView.as_view()
 
-
-class ResourcesTemplateView(TemplateView):
+# BUG: Other pages couldn't be reached
+class ResourcesTemplateView(ListView):
     template_name = 'core/resources.html'
+    model = Resource
     http_method_names = ('get', )
+    paginate_by = 10
 
     def get_resource_queryset(self, title, planet):
         qs = Resource.objects.all()
@@ -103,7 +105,15 @@ class ResourcesTemplateView(TemplateView):
         resource_link_qs = self.get_resource_link_queryset(title, planet)
         resources = [r for r in resource_qs]
         resources.extend([r for r in resource_link_qs])
-        context['resources'] = resources
+        page = self.request.GET.get('page', 1)
+        paginator = Paginator(resources, self.paginate_by)
+        try:
+            current_resources = paginator.page(page)
+        except PageNotAnInteger:
+            current_resources = paginator.page(1)
+        except EmptyPage:
+            current_resources = paginator.page(paginator.num_pages)
+        context['resources'] = current_resources
         return context
 
 
