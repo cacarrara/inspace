@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n staticfiles %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.bootstrap3.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'styles/inspace.css' %}">
     <meta content="width=device-width,initial-scale=1.0" name="viewport">
 
     <style>
@@ -38,7 +39,7 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong>InSpace</strong> {% trans 'is made by' %} 
+          <strong>InSpace</strong> {% trans 'is made by' %}
           <a href="http://caiocarrara.com.br">Caio Carrara</a> {% trans 'and' %}
           <a href="https://thiagolopes.github.io/">Thiago Lopes</a> {% trans 'at' %}
           <a href="http://spacesorocaba.com.br">Space</a>

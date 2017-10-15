@@ -9,9 +9,9 @@
       <div class="content">
         <p class="title is-4">
           {% if resource.is_link %}
-            <strong><a href="{{ resource.url }}">{{ resource.title|title }}</a></strong>
+            <strong><a href="{{ resource.url }}" target="_blank">{{ resource.title|title }}</a></strong>
           {% else %}
-            <strong>{{ resource.title|title }}</strong> 
+            <strong>{{ resource.title|title }}</strong>
           {% endif %}
           <br>
           <small class="subtitle is-6">{{ resource.created_at|date:"d/M/Y" }}</small>
