@@ -13,7 +13,7 @@ class ResourceDetailView(DetailView):
 
 class ResourceLinkDetailView(DetailView):
     model = ResourceLink
-    context_object_name = 'resource'
+    context_object_name = 'resource_link'
 
 
 class HomeTemplateView(TemplateView):
