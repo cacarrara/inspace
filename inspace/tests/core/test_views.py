@@ -45,6 +45,19 @@ def test_resouces_query_icontains(client, resources, planet_resources):
     assert len(planet_response.context['resources']) == 1
 
 
+def test_resource_list_pagination(client, resource_list):
+    url = reverse('core:resource-list')
+    response = client.get(url, {'page': 4})
+    # Test last page only has 5 resources
+    assert len(response.context['resources']) == 5
+    # Test NaN page request returns first pagination page
+    nan_response = client.get(url, {'page': None})
+    assert nan_response.context['resources'].number == 1
+    # Test invalid page number returns last page
+    invalid_page_response = client.get(url, {'page': 5})
+    assert invalid_page_response.context['resources'].number == 4
+
+
 def test_resource_create_is_resource_in_context(client):
     url = reverse('core:resource-create')
     response = client.get(url)

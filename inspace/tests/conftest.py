@@ -18,6 +18,11 @@ def resources():
 
 
 @pytest.fixture
+def resource_list():
+    return mixer.cycle(65).blend(Resource)
+
+
+@pytest.fixture
 def resources_links():
     titles = ['python', 'ruby', 'php']
     return mixer.cycle(3).blend(ResourceLink, title=(x for x in titles))
