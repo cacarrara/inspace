@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.text import slugify
 
 from . import utils
 
@@ -10,6 +11,24 @@ class BaseModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class SlugModelMixin(models.Model):
+    slug = models.SlugField(
+        _('Slug Title'),
+        max_length=250,
+        unique=True,
+        blank=True,
+        null=True
+    )
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
     class Meta:
         abstract = True
@@ -28,7 +47,7 @@ class Planet(BaseModel):
         return self.name
 
 
-class Resource(BaseModel):
+class Resource(SlugModelMixin, BaseModel):
     title = models.CharField(_('Title'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True)
     planet = models.ForeignKey(Planet, verbose_name=_('Planet'), related_name='resources')
@@ -46,7 +65,7 @@ class Resource(BaseModel):
         return self.title
 
 
-class ResourceLink(BaseModel):
+class ResourceLink(SlugModelMixin, BaseModel):
     url = models.URLField(_("Url"), unique=True)
     title = models.CharField(_('Title'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True)

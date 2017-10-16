@@ -24,6 +24,26 @@ def test_resource_uniqueness():
         mixer.blend(Resource, title='test title')
 
 
+# ResourceLink should update the slug field if not provided
+def test_resource_link_save_method_mixin():
+    resource_link = mixer.blend(
+        ResourceLink,
+        url='https://www.planetexpress.com/',
+        title='Planet Express',
+        planet__name='Earth'
+    )
+    assert resource_link.slug == 'planet-express'
+
+
+def test_resource_save_method_mixin():
+    resource = mixer.blend(
+        ResourceLink,
+        title='Planet Express',
+        planet__name='Earth'
+    )
+    assert resource.slug == 'planet-express'
+
+
 def test_resource_str():
     resource = mixer.blend(Resource, title='test title')
     assert 'test title' == str(resource)

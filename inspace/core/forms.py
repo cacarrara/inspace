@@ -6,7 +6,7 @@ from .models import Planet, Resource, ResourceLink
 class ResourceForm(ModelForm):
     class Meta:
         model = Resource
-        fields = '__all__'
+        exclude = ('slug',)
 
 
 class ResourceLinkForm(ModelForm):

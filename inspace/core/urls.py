@@ -16,6 +16,14 @@ urlpatterns = [
     url(r'^resources/',
         views.resources_view,
         name='resource-list'),
+    url(r'^resource/(?P<slug>[-\w]+)/$',
+        views.ResourceDetailView.as_view(),
+        name='resource'
+        ),
+    url(r'^resource-link/(?P<slug>[-\w]+)/$',
+        views.ResourceLinkDetailView.as_view(),
+        name='resource-link'
+        ),
     url(r'^$',
         views.home_view,
         name='home'),

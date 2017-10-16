@@ -1,0 +1,37 @@
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="{{ INSPACE_LOGO_URL }}" alt="Image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p class="title is-4">
+          <strong><a href="{{ resource_link.url }}">{{ resource_link.title|title }}</a></strong>
+          <br>
+          <small class="subtitle is-6">{{ resource_link.created_at|date:"d/M/Y" }}</small>
+        </p>
+        <p>{{ resource_link.description }}</p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <span class="icon has-text-info"><i class="fa fa-thumbs-o-up"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon has-text-info"><i class="fa fa-thumbs-o-down"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon has-text-info"><i class="fa fa-share"></i></span>
+          </a>
+        </div>
+        <div class="level-right">
+          <a href="{% url 'core:resource-list' %}?planet={{ resource_link.planet.name }}" class="level-item">
+            <span class="tag is-info">{{ resource_link.planet.name }}</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>

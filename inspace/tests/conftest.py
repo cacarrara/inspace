@@ -29,6 +29,14 @@ def planet():
 
 
 @pytest.fixture
+def planet_resources():
+    planet_names = ['jupiter', 'venus', 'mars']
+    return mixer.cycle(3).blend(
+        Resource, planet__name=(n for n in planet_names)
+    )
+
+
+@pytest.fixture
 def mocked_response_with_desc():
     mocked_response = Response()
     mocked_response._content = """
