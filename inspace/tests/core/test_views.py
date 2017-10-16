@@ -37,10 +37,12 @@ def test_resources_number_all(client, resources):
     assert len(response.context['resources']) == 3
 
 
-def test_resouces_query_icontains(client, resources):
+def test_resouces_query_icontains(client, resources, planet_resources):
     url = reverse('core:resource-list')
     response = client.get(url, {'title': 'inspace'})
     assert len(response.context['resources']) == 1
+    planet_response = client.get(url, {'planet': 'jupiter'})
+    assert len(planet_response.context['resources']) == 1
 
 
 def test_resource_create_is_resource_in_context(client):
