@@ -50,11 +50,19 @@ def test_resource_list_pagination(client, resource_list):
     response = client.get(url, {'page': 4})
     # Test last page only has 5 resources
     assert len(response.context['resources']) == 5
-    # Test NaN page request returns first pagination page
+
+
+def test_resource_list_nan_pagination(client, resource_list):
+    url = reverse('core:resource-list')
     nan_response = client.get(url, {'page': None})
+    # Test NaN page request returns first pagination page
     assert nan_response.context['resources'].number == 1
-    # Test invalid page number returns last page
+
+
+def test_resource_list_invalid_request_pagination(client, resource_list):
+    url = reverse('core:resource-list')
     invalid_page_response = client.get(url, {'page': 5})
+    # Test invalid page number returns last page
     assert invalid_page_response.context['resources'].number == 4
 
 
