@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
 
 from . import utils
+from random import randint
 
 
 class BaseModel(models.Model):
@@ -36,6 +37,7 @@ class SlugModelMixin(models.Model):
 
 class Planet(BaseModel):
     name = models.CharField(_('Name'), max_length=250, unique=True)
+    color = generateColor();
 
     class Meta:
         db_table = 'planets'
@@ -89,3 +91,8 @@ class ResourceLink(SlugModelMixin, BaseModel):
 
     def __str__(self):
         return '{} <{}>'.format(self.title, self.url)
+
+def generateColor(self):
+    colors = ['$white', '$black', '$light','$dark','$primary','$info','$success','$warning','$danger']
+    num = randint(0,len(colors))
+    return colors[num]
