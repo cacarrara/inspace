@@ -1,5 +1,6 @@
 from urllib.parse import urlencode
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
 from django.views.generic import CreateView, TemplateView, DetailView
 from .forms import PlanetForm, ResourceForm, ResourceLinkForm
@@ -88,6 +89,7 @@ resource_link_create_view = ResourceLinkCreateView.as_view()
 class ResourcesTemplateView(TemplateView):
     template_name = 'core/resources.html'
     http_method_names = ('get', )
+    paginate_by = 20
 
     def get_resource_queryset(self, title, planet):
         qs = Resource.objects.all()
@@ -109,11 +111,22 @@ class ResourcesTemplateView(TemplateView):
         context = super().get_context_data()
         title = self.request.GET.get('title')
         planet = self.request.GET.get('planet')
+        page = self.request.GET.get('page', 1)
+
         resource_qs = self.get_resource_queryset(title, planet)
         resource_link_qs = self.get_resource_link_queryset(title, planet)
         resources = [r for r in resource_qs]
         resources.extend([r for r in resource_link_qs])
-        context['resources'] = resources
+
+        paginator = Paginator(resources, self.paginate_by)
+        try:
+            current_resources = paginator.page(page)
+        except PageNotAnInteger:
+            current_resources = paginator.page(1)
+        except EmptyPage:
+            current_resources = paginator.page(paginator.num_pages)
+        context['resources'] = current_resources
+
         return context
 
 
