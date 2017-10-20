@@ -128,6 +128,10 @@ msgstr "Texto"
 msgid "No resource found 😐"
 msgstr "Nenhum recurso encontrado 😐"
 
+#: inspace/frontend/templates/core/resources.html:29
+msgid "Be the first to contribute with a resource on this subject 😄"
+msgstr "Seja o primeiro a contribuir com um recurso sobre esse assunto 😄"
+
 #: inspace/frontend/templates/form/_base.html:12
 msgid "Send"
 msgstr "Enviar"
