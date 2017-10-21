@@ -23,8 +23,13 @@
   {% for resource in resources %}
     {% include 'core/_resource_card.html' %}
   {% empty %}
-    <div class="notification is-danger">
+    <div class="notification collaborate-message">
       <p>{% trans 'No resource found 😐' %}</p>
+      <p>{% trans 'Be the first to contribute with a resource on this subject 😄' %}</p>
+      <a class="button is-success is-large is-outlined" href="{% url 'core:resource-link-create'%}">
+        <span class="icon"><i class="fa fa-lightbulb-o"></i></span>
+        <span>{% trans 'Collaborate' %}</span>
+      </a>
     </div>
   {% endfor %}
   <div class="pagination">
