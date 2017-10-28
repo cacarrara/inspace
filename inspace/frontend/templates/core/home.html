@@ -31,73 +31,81 @@
     </div>
   </section>
 
-  <div class="container">
-    <hr>
-    <div class="columns">
-      <div class="column is-one-third">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-            {% trans 'Last created resources' %}
-            </p>
-          </header>
-          <div class="card-content">
-            {% for resource in resources %}
-            <div class="content">
-              <a href="{% url 'core:resource' slug=resource.slug %}">{{ resource }}</a>
-              <br>
-              <small>{{ resource.updated_at }}</small>
-            </div>
-            {% endfor %}
-          </div>
-          <footer class="card-footer">
-            <a href="{% url 'core:resource-list' %}"class="card-footer-item">{% trans 'More resources' %}</a>
-          </footer>
-        </div>
-      </div>
-      <div class="column is-one-third">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-            {% trans 'Last created links' %}
-            </p>
-          </header>
-          <div class="card-content">
-            {% for resource_link in resources_links %}
-            <div class="content">
-              <a href="{% url 'core:resource-link' slug=resource_link.slug %}">{{ resource_link.title }}</a>
-              <br>
-              <small>{{ resource_link.updated_at }}</small>
-            </div>
-            {% endfor %}
-          </div>
-          <footer class="card-footer">
-            <a href="{% url 'core:resource-list' %}"class="card-footer-item">{% trans 'More links' %}</a>
-          </footer>
-        </div>
-      </div>
-      <div class="column is-one-third">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-            {% trans 'Planets' %}
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              {% for planet in planets %}
-                <a href="{% url 'core:resource-list' %}?planet={{ planet }}">
-                  <span class="tag tag-list is-info is-medium">{{ planet }}</span>
-                </a>
+  <section class="section">
+    <div class="container is-fluid">
+      <hr>
+      <div class="columns is-centered">
+        {% if resources %}
+        <div class="column is-one-third">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+              {% trans 'Last created resources' %}
+              </p>
+            </header>
+            <div class="card-content">
+              {% for resource in resources %}
+              <div class="content">
+                <a href="{% url 'core:resource' slug=resource.slug %}">{{ resource }}</a>
+                <br>
+                <small>{{ resource.updated_at }}</small>
+              </div>
               {% endfor %}
             </div>
+            <footer class="card-footer">
+              <a href="{% url 'core:resource-list' %}"class="card-footer-item">{% trans 'More resources' %}</a>
+            </footer>
           </div>
-          <footer class="card-footer">
-            <a href="{% url 'core:planet-create' %}"class="card-footer-item">{% trans 'Create a planet' %}</a>
-          </footer>
         </div>
+        {% endif %}
+        {% if resources_links %}
+        <div class="column is-one-third">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+              {% trans 'Last created links' %}
+              </p>
+            </header>
+            <div class="card-content">
+              {% for resource_link in resources_links %}
+              <div class="content">
+                <a href="{% url 'core:resource-link' slug=resource_link.slug %}">{{ resource_link.title }}</a>
+                <br>
+                <small>{{ resource_link.updated_at }}</small>
+              </div>
+              {% endfor %}
+            </div>
+            <footer class="card-footer">
+              <a href="{% url 'core:resource-list' %}"class="card-footer-item">{% trans 'More links' %}</a>
+            </footer>
+          </div>
+        </div>
+        {% endif %}
+        {% if planets %}
+        <div class="column is-one-third">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+              {% trans 'Planets' %}
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                {% for planet in planets %}
+                  <a href="{% url 'core:resource-list' %}?planet={{ planet }}">
+                    <span class="tag tag-list is-info is-medium">{{ planet }}</span>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a href="{% url 'core:planet-create' %}"class="card-footer-item">{% trans 'Create a planet' %}</a>
+            </footer>
+          </div>
+        </div>
+        {% endif %}
       </div>
     </div>
-  </div>
+  </section>
   <br>
 {% endblock %}
