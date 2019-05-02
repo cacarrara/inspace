@@ -1,4 +1,4 @@
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 import pytest
 
 pytestmark = pytest.mark.django_db
@@ -50,13 +50,6 @@ def test_resource_list_pagination(client, resource_list):
     response = client.get(url, {'page': 4})
     # Test last page only has 5 resources
     assert len(response.context['resources']) == 5
-
-
-def test_resource_list_nan_pagination(client, resource_list):
-    url = reverse('core:resource-list')
-    nan_response = client.get(url, {'page': None})
-    # Test NaN page request returns first pagination page
-    assert nan_response.context['resources'].number == 1
 
 
 def test_resource_list_invalid_request_pagination(client, resource_list):

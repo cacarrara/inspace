@@ -50,7 +50,9 @@ class Planet(BaseModel):
 class Resource(SlugModelMixin, BaseModel):
     title = models.CharField(_('Title'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True)
-    planet = models.ForeignKey(Planet, verbose_name=_('Planet'), related_name='resources')
+    planet = models.ForeignKey(
+        Planet, on_delete=models.CASCADE, verbose_name=_('Planet'), related_name='resources'
+    )
 
     class Meta:
         db_table = 'resources'
@@ -69,7 +71,9 @@ class ResourceLink(SlugModelMixin, BaseModel):
     url = models.URLField(_("Url"), unique=True)
     title = models.CharField(_('Title'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True)
-    planet = models.ForeignKey(Planet, verbose_name=_('Planet'), related_name='resources_links')
+    planet = models.ForeignKey(
+        Planet, on_delete=models.CASCADE, verbose_name=_('Planet'), related_name='resources_links'
+    )
 
     class Meta:
         db_table = 'resources_links'

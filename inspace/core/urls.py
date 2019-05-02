@@ -1,30 +1,45 @@
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 
+app_name = 'core'
+
+
 urlpatterns = [
-    url(r'^planet/$',
+    path(
+        'planet/',
         views.planet_create_view,
-        name='planet-create'),
-    url(r'^resource/$',
+        name='planet-create'
+    ),
+    path(
+        'resource/',
         views.resource_create_view,
-        name='resource-create'),
-    url(r'^resourcelink/$',
+        name='resource-create'
+    ),
+    path(
+        'resourcelink/',
         views.resource_link_create_view,
-        name='resource-link-create'),
-    url(r'^resources/',
+        name='resource-link-create'
+    ),
+    path(
+        'resources/',
         views.resources_view,
-        name='resource-list'),
-    url(r'^resource/(?P<slug>[-\w]+)/$',
+        name='resource-list'
+    ),
+    path(
+        'resource/<slug:slug>/',
         views.ResourceDetailView.as_view(),
         name='resource'
-        ),
-    url(r'^resource-link/(?P<slug>[-\w]+)/$',
+    ),
+    path(
+        'resource-link/<slug:slug>/',
         views.ResourceLinkDetailView.as_view(),
         name='resource-link'
-        ),
-    url(r'^$',
+    ),
+    path(
+        '',
         views.home_view,
-        name='home'),
+        name='home'
+    ),
 ]

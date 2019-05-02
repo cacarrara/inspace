@@ -1,7 +1,7 @@
 from urllib.parse import urlencode
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.views.generic import CreateView, TemplateView, DetailView
 from .forms import PlanetForm, ResourceForm, ResourceLinkForm
 from .models import Planet, Resource, ResourceLink
