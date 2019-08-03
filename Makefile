@@ -1,10 +1,25 @@
 default: test
 
+clean: clean-build
+	@find . -iname '*.pyc' -delete
+	@find . -iname '*.pyo' -delete
+	@find . -iname '*~' -delete
+	@find . -iname '*.swp' -delete
+	@find . -iname '__pycache__' -delete
+
+clean-build:
+	@rm -fr build/
+	@rm -fr dist/
+	@rm -fr *.egg-info
+
 run:
 	python inspace/manage.py runserver
 
-run-migrate:
+migrate:
 	python inspace/manage.py migrate
+
+migrations:
+	python inspace/manage.py makemigrations
 
 shell:
 	python inspace/manage.py shell
@@ -12,45 +27,25 @@ shell:
 collectstatic:
 	python inspace/manage.py collectstatic
 
-clean: clean-eggs clean-build
-	@find . -iname '*.pyc' -delete
-	@find . -iname '*.pyo' -delete
-	@find . -iname '*~' -delete
-	@find . -iname '*.swp' -delete
-	@find . -iname '__pycache__' -delete
-
-clean-eggs:
-	@find . -name '*.egg' -print0|xargs -0 rm -rf --
-	@rm -rf .eggs/
-
-clean-build:
-	@rm -fr build/
-	@rm -fr dist/
-	@rm -fr *.egg-info
-
 test:
 	pytest inspace
 
 test-coverage:
 	pytest inspace --cov-report=html
 
-install-local:
-	pip install -r requirements/local.txt
+install: pip-tools
+	pip-sync requirements.txt
 
-install-test:
-	pip install -r requirements/test.txt
+install-dev: pip-tools
+	pip-sync requirements.txt requirements-dev.txt
 
 ${VIRTUAL_ENV}/bin/pip-sync:
 	pip install pip-tools
 
 pip-tools: ${VIRTUAL_ENV}/bin/pip-sync
 
-pip-compile: pip-tools
-	@rm -f requirements/production.txt
-	pip-compile requirements/production.in
+lock: pip-tools
+	pip-compile --generate-hashes --output-file requirements.txt requirements/base.in
 
-pip-install: pip-compile
-	pip install --upgrade -r requirements/local.txt
-
-pip-upgrade: pip-tools
-	pip-compile --upgrade requirements/production.in
+lock-dev: pip-tools
+	pip-compile --generate-hashes --output-file requirements-dev.txt requirements/dev.in

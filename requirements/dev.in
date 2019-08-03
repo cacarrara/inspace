@@ -1,5 +1,5 @@
--r production.txt
+flake8
+ipdb
 mixer
 pytest-django
 pytest-cov
-flake8
