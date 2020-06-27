@@ -55,13 +55,13 @@ but it's good to have them categorized.
 
 **Galaxy:** Programming  **Stars:** Python, Javascript, C#, Text Editors
 **Planets:** Django, Node, Vim, Sublime, Meteor, Flask  **Satellites:**
-Vim plugins, ExpressJS, Django Rest Framework  
+Vim plugins, ExpressJS, Django Rest Framework
 
 **Galaxy:** Software Development  **Star:** Agile,  **Planet:** Scrum,
-XP, Refactoring, Continuous Integration  
+XP, Refactoring, Continuous Integration
 
 **Galaxy:** Entrepreneurship  **Star:** Startup  **Planet:** Lean,
-Canvas  
+Canvas
 
 
 ## Resources
@@ -90,7 +90,7 @@ by community.
 
 ## Installing for development
 
-1. Clone repository: `git clone github.com/mochaoss/inspace.git`
+1. Clone repository: `git clone github.com/cacarrara/inspace.git`
 2. Now in the folder that you cloned set the configuration: `mv local.env .env`
 3. `make install install-dev`
 5. `make migrate`
