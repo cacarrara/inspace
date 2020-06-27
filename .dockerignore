@@ -1,0 +1,8 @@
+*
+!inspace
+!requirements*
+!Makefile
+!local.env
+.pytest_cache
+*pyc
+static_deploy

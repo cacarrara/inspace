@@ -1,0 +1,9 @@
+FROM cacarrara/inspace
+
+WORKDIR /app
+
+USER root
+
+RUN make install-dev && cp local.env .env
+
+USER inspace
