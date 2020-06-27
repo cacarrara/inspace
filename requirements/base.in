@@ -2,7 +2,7 @@ beautifulsoup4
 dj-database-url
 django
 gunicorn
-psycopg2-binary
+psycopg2
 prettyconf
 requests
 whitenoise
